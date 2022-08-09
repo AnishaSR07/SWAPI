@@ -1,59 +1,33 @@
 package demo;
 
 import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.json.simple.JSONObject;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import io.restassured.http.ContentType;
-
-public class DataDrivenExamples extends DataForTest{
-
-	//@Test(dataProvider = "DataForPost")
-	public void test_post(String firstName, String lastName, int subjectId) {
-
-		JSONObject request = new JSONObject();
-
-		request.put("firstName",firstName);
-		request.put("lastName",lastName);
-		request.put("subjectId", subjectId);
-
-		baseURI = "http://localhost:3000/";
-
-		given().
-		contentType(ContentType.JSON).
-		accept(ContentType.JSON).
-		header("Content-Type", "application/json").
-		body(request.toJSONString()).
-		when().
-		post("/users").
-		then().
-		statusCode(201).
-		log().all();
-	}
-
-
-
-	//@Test(dataProvider = "dataForDelete")
-	public void delete(int userId) {
-
-		baseURI = "http://localhost:3000/";
-
-		when().delete("/users/"+userId).then().statusCode(200);
-
-	}
-
-	@Parameters({"userId"})
+import io.restassured.response.Response;
+import utils2.ExcelUtility;
+public class DataDrivenExamples {
+	static XSSFWorkbook workbook;
+	static XSSFSheet sheet;
+	static XSSFRow row = null;
+	static XSSFCell cell = null;
 	@Test
-	public void delete2(int userId) {
-
-		System.out.println("UserId is : {$userId}"+userId);
-		baseURI = "http://localhost:3000/";
-
-		when().delete("/users/"+userId).then().statusCode(200);
+	public static void datadriven() {
+		String excelpath="C:\\Users\\anisha.s.r\\git\\REST-assured_Project\\data\\TestData.xlsx";
+		String sheetname="Sheet1";
+		baseURI = "https://swapi.dev/api";
+		ExcelUtility excel = new ExcelUtility(excelpath, sheetname);
+		JSONObject request= new JSONObject();
+		request.put("name", excel.getCellData(1, 0));
+		request.put("height", excel.getCellData(1, 1));
+		request.put("gender", excel.getCellData(1, 2));
+		Response response = given().header("Content-Type", "application/json").body(request.toJSONString()).when().post("/people").then().extract().response();
 
 	}
+
 }
