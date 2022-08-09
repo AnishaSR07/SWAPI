@@ -18,7 +18,7 @@ import io.restassured.specification.RequestSpecification;
 
 public class TC_01 {
 
-	public class TC_01 {
+	
 //1.The API should be able to return a list of all the Star Wars characters.
 	@Test(priority=1)
 	public void test_01() {
