@@ -31,11 +31,13 @@ public class ExcelUtility {
 	}
 
 
-	public static void getCellData(int rowNum, int colNum) {
+	public static Object getCellData(int rowNum, int colNum) {
 
 			DataFormatter formatter = new DataFormatter();
 			Object value = formatter.formatCellValue(sheet.getRow(rowNum).getCell(colNum));
 			System.out.println(value);
+			return value;
 	}
+
 
 }
