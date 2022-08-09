@@ -67,7 +67,9 @@ public void test_02() {
 	Assert.assertEquals(statusCode, 200);
 }
   //5.5. Content-Type is present Content-Type header is application/json payload schema is valid Verify few attributes of the characters in the output (type, length , value etc)
-	@Test(priority=4)Map<String, Object> jsonMap = new HashMap<String, Object>();
+	@Test(priority=4)
+	public void test_03() {
+	Map<String, Object> jsonMap = new HashMap<String, Object>();
 
 		jsonMap.put("length", "120000");
 		jsonMap.put("name", "Death Star");
@@ -89,7 +91,7 @@ JSONObject request = new JSONObject(jsonMap);
 	}
 
 
-}
+
 
 	public void test_post() {
     Map<String, Object> jsonMap = new HashMap<String, Object>();
