@@ -17,7 +17,7 @@ public class DataDrivenExamples {
 	static XSSFRow row = null;
 	static XSSFCell cell = null;
 	@Test
-	public static void datadriven() {
+	public  void datadriven() {
 		String excelpath="C:\\Users\\anisha.s.r\\git\\REST-assured_Project\\data\\TestData.xlsx";
 		String sheetname="Sheet1";
 		baseURI = "https://swapi.dev/api";
