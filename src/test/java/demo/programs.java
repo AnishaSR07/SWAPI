@@ -1,4 +1,4 @@
-package demo
+package demo;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.EOFException;
@@ -91,3 +91,4 @@ public static void trial2() throws IOException {
            RecursivePrint(arr, 0, 0);
      }
    }
+}
