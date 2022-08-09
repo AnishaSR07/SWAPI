@@ -4,7 +4,8 @@
 <parameter name="userId" value="4"></parameter>
   <test thread-count="0" name="Test">
     <classes>
-      <class name="demo.ExampleForDataDriven"/>
+      <class name="demo.TC_01"/>
     </classes>
   </test> 
 </suite>
+
