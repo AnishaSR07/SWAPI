@@ -2,7 +2,7 @@ package demo;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-
+import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.restassured.RestAssured;
