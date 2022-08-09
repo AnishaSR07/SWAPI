@@ -1,6 +1,6 @@
 package utils;
 
-public class ExcelUtilsDemo {
+public class ExtentReportListner {
 	
 	public static void main(String[] args) {
 		
