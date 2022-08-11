@@ -13,21 +13,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner; 
 public class programs {
-  public static void method1() throws FileNotFoundException {
-			File file = new File("C:\\Users\\anisha.s.r\\OneDrive - Accenture\\Documents\\Anisha\\small.dat.txt");
-			FileReader fr=new FileReader(file); 
-    Scanner scnr = new Scanner(file);
-			int count=0;
-			while(scnr.hasNextLine()){
-         String line = scnr.nextLine();
-			   String splitline[]=line.split("\\s");
-		         for(String word:splitline) {
-               if(word.equals(word.toUpperCase())&&word.startsWith("T")||word.endsWith("S")) {
-		        		 count++;
-		             }
-		        	 
-		             }}
-			System.out.println("the number of files that start with T or end in S is: "+count);}
+ 
 public static void trial2() throws IOException {
 		File file = new File("C:\\Users\\anisha.s.r\\OneDrive - Accenture\\Documents\\Anisha\\small.dat.txt");
 		FileReader fr=new FileReader(file);  
