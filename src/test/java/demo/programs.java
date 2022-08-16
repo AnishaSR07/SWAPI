@@ -42,7 +42,7 @@ public class programs {
         File arr[] = maindir.listFiles();
             System.out.println(
                 "Files from main directory : " + maindir);
-           RecursivePrint(arr, 0, 0);
+           RecursivePrint(arr, 0);
      }
    }
 }
