@@ -14,57 +14,25 @@ import java.util.List;
 import java.util.Scanner; 
 public class programs {
  
-public static void trial2() throws IOException {
-		File file = new File("C:\\Users\\anisha.s.r\\OneDrive - Accenture\\Documents\\Anisha\\small.dat.txt");
-		FileReader fr=new FileReader(file);  
-  BufferedReader buffer = new BufferedReader(fr);
-		int filecount=0;
-		int directorycount=0;
-		String filenames="";
-		String directories="";
-		String line;
-  while ((line = buffer.readLine()) != null) {
-			 String splitline[]=line.split("\\s");
-			 for(String word:splitline) {
-          if(word.equals(word.toUpperCase())) {
-					if(word.startsWith("T")||word.endsWith("S")) {
-						 filecount++;
-						 filenames=filenames+word+" " ;
-					 }}
-         else {
-					 directorycount++;
-					 directories=directories+word+ " ";
-					 String[] directoriessplit=directories.split("");
-					 
-					 
-				 }}}}
-  static void RecursivePrint(File[] arr, int index, int level)
-    {
-		 int count=0;
-    ArrayList<String> al = new ArrayList<String>();
-        // terminate condition
-        if (index == arr.length)
+
+  public static void RecursivePrint(File[] arr, int index)
+   {if (index == arr.length)
             return;
-    for (int i = 0; i < level; i++)
-            System.out.print("\t");
     if (arr[index].isFile()) {
-       System.out.println("-" +arr[index].getName());
-       String eachfile=arr[index].getName().replace(".txt", "");
-       if(eachfile.equals(eachfile.toUpperCase())) {
+      String eachfile=arr[index].getName().replace(".txt", "");
+    if(eachfile.equals(eachfile.toUpperCase())) {
     	  if(eachfile.startsWith("T")||eachfile.endsWith("S")) {
-    		 count++;
+    		
+    		 System.out.println("Text files are: " +eachfile);
     		      	  }
        }
         }
-     else  if (arr[index].isDirectory()) {
-            System.out.println("[" + arr[index].getName()
-                               + "]");
-        RecursivePrint(arr[index].listFiles(), 0,
-                           level + 1);
-       }
-        RecursivePrint(arr, ++index, level);
-        
-       }
+      else  if (arr[index].isDirectory()) {
+        	RecursivePrint(arr[index].listFiles(), 0
+                          );
+        }
+        RecursivePrint(arr, ++index);
+      }
    public static void main(String[] args)
     {
      String maindirpath
